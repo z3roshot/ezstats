@@ -1,6 +1,6 @@
 {
   "name": "ezstats",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "library of statistics functions",
   "main": "index.js",
   "scripts": {
