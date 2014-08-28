@@ -139,5 +139,41 @@ describe('zScores', function(){
 			return typeof score === 'object';
 		}
 	});
+
+	it('should calculate the scores correctly given a known data set', function(){
+		var zScores = stats.zScores([100,99,101,125,100,123,96,90,98,116]);
+
+		expect(zScores[0]).propertyIs('value', 100)
+						  .propertyIs('z', -0.42);
+
+		expect(zScores[1]).propertyIs('value', 99)
+						  .propertyIs('z', -0.51);
+
+		expect(zScores[2]).propertyIs('value', 101)
+						  .propertyIs('z', -0.33);
+
+		expect(zScores[3]).propertyIs('value', 125)
+						  .propertyIs('z', 1.77);
+
+		expect(zScores[4]).propertyIs('value', 100)
+						  .propertyIs('z', -0.42);
+
+		expect(zScores[5]).propertyIs('value', 123)
+						  .propertyIs('z', 1.60);
+
+		expect(zScores[6]).propertyIs('value', 96)
+						  .propertyIs('z', -0.77);
+
+		expect(zScores[7]).propertyIs('value', 90)
+						  .propertyIs('z', -1.30);
+
+		expect(zScores[8]).propertyIs('value', 98)
+						  .propertyIs('z', -0.60);
+
+		expect(zScores[9]).propertyIs('value', 116)
+						  .propertyIs('z', 0.98);
+
+
+	});
 });
 

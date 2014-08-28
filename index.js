@@ -54,6 +54,8 @@ function standardDeviation(vals){
 
 exports.zScores = zScores;
 
+
+// Rounds to 2 decimal places
 function zScores(vals){
 	if(!isValid(vals)){
 		return null;
@@ -66,7 +68,7 @@ function zScores(vals){
 	return vals.map(zScore);
 
 	function zScore(value){
-		var z = (value - valMean) / valStandardDeviation;
+		var z = ((value - valMean) / valStandardDeviation).toFixed(2);
 		return { value: value, z: z };
 	}
 }
