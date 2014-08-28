@@ -52,6 +52,25 @@ function standardDeviation(vals){
 	return valVariance && Math.sqrt(valVariance);
 }
 
+exports.zScores = zScores;
+
+function zScores(vals){
+	if(!isValid(vals)){
+		return null;
+	}
+
+	var valMean = mean(vals);
+
+	var valStandardDeviation = standardDeviation(vals);
+
+	return vals.map(zScore);
+
+	function zScore(value){
+		var z = (value - valMean) / valStandardDeviation;
+		return { value: value, z: z };
+	}
+}
+
 function isValid(vals){
 	if(!vals || !vals.length){
 		return null;

@@ -107,3 +107,37 @@ describe('standardDeviation', function(){
 
 });
 
+describe('zScores', function(){	
+	it('should return null for an empty list', function(){
+		var zScores = stats.zScores([]);
+
+		expect(zScores).isExactly(null);
+	});
+
+	it('should return null when any item is not a number', function(){
+		var zScores = stats.zScores([1,2,3,'a']);
+
+		expect(zScores).isExactly(null);
+
+		var zScores2 = stats.zScores([1,2,null,function(){}]);
+
+		expect(zScores2).isExactly(null);
+	});
+
+	it('should return an array with the same length as the input', function(){
+		var zScores = stats.zScores([1,2,3]);
+
+		expect(zScores.length).is(3);
+	});
+
+	it('should return an array of objects', function(){
+		var zScores = stats.zScores([1,2,3]);
+
+		expect(zScores.every(isObj)).isTruthy();
+
+		function isObj(score){
+			return typeof score === 'object';
+		}
+	});
+});
+
