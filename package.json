@@ -1,0 +1,15 @@
+{
+  "name": "ezstats",
+  "version": "0.0.0",
+  "description": "library of statistical functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "javascript",
+    "statistics"
+  ],
+  "author": "Christopher Gillis",
+  "license": "MIT"
+}
